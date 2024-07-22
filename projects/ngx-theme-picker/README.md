@@ -1,24 +1,74 @@
-# NgxThemePicker
+# Theme Picker
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
+This is a re-work of [material.angular.io](https://github.com/angular/material.angular.io) theme-picker component, with new signals inputs and more customizing. 
 
-## Code scaffolding
+![Theme Picker Example](./theme-picker.gif)
 
-Run `ng generate component component-name --project ngx-theme-picker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-theme-picker`.
-> Note: Don't forget to add `--project ngx-theme-picker` or else it will be added to the default project in your `angular.json` file. 
+## Getting Started
 
-## Build
+**Install.** Run `npm i ngx-theme-picker`
 
-Run `ng build ngx-theme-picker` to build the project. The build artifacts will be stored in the `dist/` directory.
+## How to Use
 
-## Publishing
+### 1. Import to Component:
+```typescript
+import { Theme, ThemePicker } from 'ngx-theme-picker';
 
-After building your library with `ng build ngx-theme-picker`, go to the dist folder `cd dist/ngx-theme-picker` and run `npm publish`.
+@Component({
+	...
+	imports: [ThemePicker],
+	...
+})
+export class MyComponent {
+	themes: Theme[] = [
+		...
+		{
+            color: '#d7e3ff',
+            displayName: 'Azure & Blue',
+            name: 'azure-blue',
+            background: '#fdfbff'
+        },
+        ...
+	];
+}
+```
+### 2. Use in Template:
+```html
+	<ngx-theme-picker [themes]="themes" />
+```
 
-## Running unit tests
+### 3. Make sure you have CSS output styles configured with the name of theme in angular.json file:
 
-Run `ng test ngx-theme-picker` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```json
+"styles": [
+	{
+		"input": "src/styles/azure-blue.scss", <-- path to custom-theme
+        "bundleName": "azure-blue", <-- theme name
+        "inject": false
+	},
+],
+```
 
-## Further help
+Here is an example of a custom theme scss file: 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```scss
+@use "@angular/material" as mat;
+
+$theme: mat.define-theme(
+    (
+        color: (
+            theme-type: light,
+            primary: mat.$azure-palette,
+            tertiary: mat.$blue-palette,
+        ),
+    )
+);
+
+:root {
+    @include mat.all-component-themes($theme);
+}
+```
+
+## Source-Code
+
+You can contribute to this project and others through its GitHub repository -> [ngx-sougabriel-libs](https://github.com/sougabriel/ngx-sougabriel-libs.git).
