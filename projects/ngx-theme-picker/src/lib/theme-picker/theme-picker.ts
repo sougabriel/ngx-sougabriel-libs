@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
-    selector: 'ngx-mat-theme-picker',
+    selector: 'ngx-theme-picker',
     templateUrl: 'theme-picker.html',
     styleUrls: ['theme-picker.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
