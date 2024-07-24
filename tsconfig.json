@@ -11,6 +11,9 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
+      "ngx-cookie-popup": [
+        "./dist/ngx-cookie-popup"
+      ],
       "ngx-theme-picker": [
         "./dist/ngx-theme-picker"
       ]
