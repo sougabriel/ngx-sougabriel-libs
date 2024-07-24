@@ -10,10 +10,13 @@
     "url": "https://github.com/sougabriel/ngx-sougabriel-libs.git"
   },
   "keywords": [
-    "Angular",
-    "Angular Material",
-    "Angular Signals",
-    "Typescript"
+    "angular",
+    "material design",
+    "signals",
+    "localStorage",
+    "style manager",
+    "themes",
+    "theme chooser"
   ],
   "license": "MIT",
   "peerDependencies": {
